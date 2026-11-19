@@ -1,0 +1,339 @@
+ 
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>StyleNest - Fashion Store</title> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+ 
+    <style> 
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        } 
+ 
+        body { 
+            font-family: Arial, sans-serif; 
+            background: #f8f5f2; 
+        } 
+ 
+        /* Header */ 
+        header { 
+            background: #222; 
+            color: white; 
+            text-align: center; 
+            padding: 20px; 
+        } 
+ 
+        header h1 { 
+            color: #f4b183; 
+        } 
+ 
+        /* Navigation */ 
+        nav { 
+            background: #333; 
+        } 
+ 
+        nav ul { 
+            display: flex; 
+            justify-content: center; 
+            list-style: none; 
+        } 
+ 
+        nav li { 
+            position: relative; 
+        } 
+ 
+        nav a { 
+            display: block; 
+            color: white; 
+            padding: 15px 25px; 
+            text-decoration: none; 
+            transition: 0.3s; 
+        } 
+ 
+        nav a:hover { 
+            background: #f4b183; 
+            color: black; 
+        } 
+ 
+        /* Dropdown */ 
+        .dropdown { 
+            display: none; 
+            position: absolute; 
+            background: #444; 
+            min-width: 150px; 
+            z-index: 10; 
+        } 
+ 
+        nav li:hover .dropdown { 
+            display: block; 
+        } 
+ 
+        /* Sliding Promotional Text */ 
+        .offer { 
+            background: #f4b183; 
+            color: #222; 
+            padding: 12px; 
+            overflow: hidden; 
+            white-space: nowrap; 
+        } 
+ 
+        .offer p { 
+            display: inline-block; 
+            font-weight: bold; 
+            animation: slideText 10s linear infinite; 
+        } 
+ 
+        @keyframes slideText { 
+            from { 
+                transform: translateX(100vw); 
+            } 
+ 
+            to { 
+                transform: translateX(-100%); 
+            } 
+        } 
+ 
+        /* Gallery */ 
+        .container { 
+            padding: 30px; 
+            text-align: center; 
+        } 
+ 
+        .container h2 { 
+            color: #333; 
+            margin-bottom: 10px; 
+        } 
+ 
+        .gallery { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 20px; 
+            margin-top: 25px; 
+        } 
+ 
+        /* Product Card Animation */ 
+        .card { 
+            background: white; 
+            padding: 15px; 
+            border-radius: 10px; 
+            box-shadow: 0 2px 8px #ccc; 
+            animation: fadeIn 1.5s ease; 
+            transition: transform 0.3s; 
+        } 
+ 
+        @keyframes fadeIn { 
+            from { 
+                opacity: 0; 
+                transform: translateY(20px); 
+            } 
+ 
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            } 
+        } 
+ 
+        .card:hover { 
+            transform: translateY(-8px); 
+        } 
+ 
+        .card img { 
+            width: 100%; 
+            height: 220px; 
+            object-fit: cover; 
+            border-radius: 8px; 
+            transition: transform 0.4s; 
+        } 
+ 
+        .card img:hover { 
+            transform: scale(1.05); 
+        } 
+ 
+        .card h3 { 
+            margin: 12px; 
+        } 
+ 
+        .card p { 
+            color: #555; 
+        } 
+ 
+        /* Animated Button */ 
+        .card button { 
+            background: #333; 
+            color: white; 
+            padding: 10px 20px; 
+            border: none; 
+            margin-top: 10px; 
+            cursor: pointer; 
+            transition: background 0.3s, transform 0.3s; 
+        } 
+ 
+        .card button:hover { 
+            background: #f4b183; 
+            color: black; 
+            transform: scale(1.08); 
+        } 
+ 
+        /* Tablet */ 
+        @media (max-width: 768px) { 
+            .gallery { 
+                grid-template-columns: repeat(2, 1fr); 
+            } 
+ 
+            nav ul { 
+                flex-direction: column; 
+                text-align: center; 
+            } 
+ 
+            .dropdown { 
+                position: static; 
+            } 
+        } 
+ 
+        /* Mobile */ 
+        @media (max-width: 480px) { 
+            .gallery { 
+                grid-template-columns: 1fr; 
+            } 
+ 
+            .container { 
+                padding: 15px; 
+            } 
+ 
+            .card img { 
+                height: 200px; 
+            } 
+        } 
+ 
+        /* Footer */ 
+        footer { 
+            background: #222; 
+            color: white; 
+            text-align: center; 
+            padding: 15px; 
+        } 
+ 
+        /* Accessibility */ 
+        @media (prefers-reduced-motion: reduce) { 
+            *, *::before, *::after { 
+                animation: none !important; 
+                transition: none !important; 
+            } 
+        } 
+    </style> 
+</head> 
+ 
+<body> 
+ 
+    <!-- Header --> 
+    <header> 
+        <h1>StyleNest</h1> 
+        <p>Your Style, Your Choice</p> 
+    </header> 
+ 
+    <!-- Navigation --> 
+    <nav> 
+        <ul> 
+            <li><a href="#">Home</a></li> 
+ 
+            <li> 
+                <a href="#">Men ▼</a> 
+                <div class="dropdown"> 
+                    <a href="#">Shirts</a> 
+                    <a href="#">Jeans</a> 
+                    <a href="#">Jackets</a> 
+                </div> 
+            </li> 
+ 
+            <li> 
+                <a href="#">Women ▼</a> 
+                <div class="dropdown"> 
+                    <a href="#">Dresses</a> 
+                    <a href="#">Tops</a> 
+                    <a href="#">Jeans</a> 
+                </div> 
+            </li> 
+ 
+            <li><a href="#">Offers</a></li> 
+            <li><a href="#">Contact</a></li> 
+        </ul> 
+    </nav> 
+ 
+    <!-- Sliding Offer --> 
+    <div class="offer"> 
+        <p>Special Fashion Sale! Get the Latest Trends at StyleNest!</p> 
+    </div> 
+ 
+    <!-- Fashion Gallery --> 
+    <div class="container"> 
+        <h2>StyleNest Fashion Collection</h2> 
+        <p>Explore Our Latest Fashion Trends</p> 
+ 
+        <div class="gallery"> 
+ 
+            <div class="card"> 
+                <img src="https://images.unsplash.com/photo-1521572163474
+6864f9cf17ab?w=500" 
+                alt="Casual Shirt"> 
+                <h3>Casual Shirt</h3> 
+                <p>Price: ₹799</p> 
+                <button>Shop Now</button> 
+            </div> 
+ 
+            <div class="card"> 
+                <img src="https://images.unsplash.com/photo-1539109136881
+3be0616acf4b?w=500" 
+                alt="Fashion Dress"> 
+                <h3>Fashion Dress</h3> 
+                <p>Price: ₹1299</p> 
+                <button>Shop Now</button> 
+            </div> 
+ 
+            <div class="card"> 
+                <img src="https://images.unsplash.com/photo-1542272604
+787c3835535d?w=500" 
+                alt="Denim Jeans"> 
+                <h3>Denim Jeans</h3> 
+                <p>Price: ₹999</p> 
+                <button>Shop Now</button> 
+            </div> 
+ 
+            <div class="card"> 
+                <img src="https://images.unsplash.com/photo-1544441893
+675973e31985?w=500" 
+                alt="Fashion Jacket"> 
+                <h3>Fashion Jacket</h3> 
+                <p>Price: ₹1499</p> 
+                <button>Shop Now</button> 
+            </div> 
+ 
+            <div class="card"> 
+                <img src="https://images.unsplash.com/photo-1490481651871
+ab68de25d43d?w=500" 
+                alt="Women's Collection"> 
+                <h3>Women's Collection</h3> 
+                <p>Price: ₹1199</p> 
+                <button>Shop Now</button> 
+            </div> 
+ 
+            <div class="card"> 
+                <img src="https://images.unsplash.com/photo-1529139574466
+a303027c1d8b?w=500" 
+                alt="Modern Outfit"> 
+                <h3>Modern Outfit</h3> 
+                <p>Price: ₹1799</p> 
+                <button>Shop Now</button> 
+            </div> 
+ 
+        </div> 
+    </div> 
+ 
+    <!-- Footer --> 
+    <footer> 
+        <p>© 2026 StyleNest | Fashion for Everyone</p> 
+    </footer> 
+ 
+</body> 
+</html> 
